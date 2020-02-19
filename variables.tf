@@ -25,6 +25,14 @@ variable "tfe_name" {
   default = "tfe-pm-ext-1"
 }
 
+variable "key_path" {
+  default = "~/.ssh/id_rsa"
+}
+
+variable "public_key_path" {
+  default = "~/.ssh/id_rsa.pub"
+}
+
 // Network settingds and tags
 
 variable "cidrs" {
