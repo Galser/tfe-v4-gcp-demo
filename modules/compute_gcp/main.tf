@@ -11,6 +11,7 @@ resource "google_compute_instance" "ptfe" {
   boot_disk {
     initialize_params {
       image = var.image
+      size  = 80
     }
   }
 
@@ -29,7 +30,7 @@ resource "google_compute_instance" "ptfe" {
   connection {
     user        = "ubuntu"
     type        = "ssh"
-    private_key = "${file("${var.key_path}")}"
+    private_key = file(var.key_path)
     host        = self.network_interface.0.access_config.0.nat_ip
   }
 

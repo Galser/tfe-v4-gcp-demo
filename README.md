@@ -57,6 +57,8 @@ You can read more about service account keys in [Google's documentation](https:/
 
 # DONE
 - [x] define objectives
+ - [X] - instance deploy 
+ - [X] - instance group deploy
 
 
 # Run logs

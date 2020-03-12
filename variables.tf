@@ -1,10 +1,11 @@
 // GCP data
 variable "project" {
-  default = "tf-gettingstarted"
+  default = "ag-tfe-v4-playground"
 }
 
 variable "credentials_file" {
-  default = "~/Keys/tf-gettingstarted-ade17a5d7ec1.json"
+  #default = "~/Keys/tf-gettingstarted-ade17a5d7ec1.json"
+  default = "~/Downloads/Keys/ag-tfe-v4-playground-850888f3f3a7.json"
 }
 
 variable "region" {
