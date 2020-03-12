@@ -6,21 +6,22 @@ data "cloudflare_zones" "site_zone" {
 
 locals {
   backend        = "${var.host}_backend"
+  frontend       = "${var.host}.${var.domain}"
   domain_zone_id = lookup(data.cloudflare_zones.site_zone.zones[0], "id")
 }
 
 resource "cloudflare_record" "site_backend" {
   zone_id = local.domain_zone_id
   name    = local.backend
-  value   = var.record_ip
+  value   = var.backend_ip
   type    = "A"
   ttl     = 600
 }
 
 resource "cloudflare_record" "site_lb" {
   zone_id = local.domain_zone_id
-  name    = var.host
-  value   = var.cname_target
-  type    = "CNAME"
+  name    = local.frontend
+  value   = var.frontend_ip
+  type    = "A"
   ttl     = 600
 }
